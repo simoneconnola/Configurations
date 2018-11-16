@@ -2,25 +2,31 @@
 import UIKit
 
 
-struct ImageViewConfiguration: Then {
-    var contentMode: UIView.ContentMode
-    var backgroundColor: UIColor?
-    var tintColor: UIColor?
+public struct ImageViewConfiguration {
+    public var contentMode: UIView.ContentMode
+    public var backgroundColor: UIColor?
+    public var tintColor: UIColor?
+    
+    public init(contentMode: UIView.ContentMode, backgroundColor: UIColor?, tintColor: UIColor?) {
+        self.contentMode = contentMode
+        self.backgroundColor = backgroundColor
+        self.tintColor = tintColor
+    }
 }
 
-extension ImageViewConfiguration {
+public extension ImageViewConfiguration {
     
     static let aspectFitting = ImageViewConfiguration(contentMode: .scaleAspectFit, backgroundColor: nil, tintColor: nil)
     static let aspectFilling = ImageViewConfiguration(contentMode: .scaleAspectFill, backgroundColor: nil, tintColor: nil)
 }
 
-extension UIImageView {
-    convenience init(configuration: ImageViewConfiguration) {
+public extension UIImageView {
+    public convenience init(configuration: ImageViewConfiguration) {
         self.init()
         apply(configuration: configuration)
     }
     
-    func apply(configuration: ImageViewConfiguration) {
+    public func apply(configuration: ImageViewConfiguration) {
         contentMode = configuration.contentMode
         backgroundColor = configuration.backgroundColor
         if let tint = configuration.tintColor {

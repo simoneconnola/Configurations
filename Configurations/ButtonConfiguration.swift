@@ -1,63 +1,60 @@
 
 import UIKit
 
-struct ButtonConfiguration: Then {
+public struct ButtonConfiguration {
 
-    struct Stateful {
+    public struct StateConfiguration {
         var titleColor: UIColor?
         var image: UIImage?
         var backgroundImage: UIImage?
     }
     
-    var type: UIButton.ButtonType
-    var contentEdgeInsets: UIEdgeInsets
-    var backgroundColor: UIColor
-    var label: LabelConfiguration?
-    var layer: LayerConfiguration?
-    var stateful: [(state: UIControl.State, configuration: Stateful)]
+    public var type: UIButton.ButtonType
+    public var contentEdgeInsets: UIEdgeInsets
+    public var backgroundColor: UIColor
+    public var labelConfiguration: LabelConfiguration?
+    public var layerConfiguration: LayerConfiguration?
+    public var stateConfigurations: [(state: UIControl.State, configuration: StateConfiguration)]
     
-}
-
-extension ButtonConfiguration {
-    
-    static let base = ButtonConfiguration(type: .system, contentEdgeInsets: .zero, backgroundColor: .clear, label: nil, layer: nil, stateful: [])
-    
-    static let dark = base.with {
-        $0.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
-        $0.backgroundColor = .button
-        $0.label = .button
-        $0.layer = .button
-        
-        let normalState = Stateful(titleColor: .white, image: nil, backgroundImage: nil)
-        let disabledState = Stateful(titleColor: .disabledText, image: nil, backgroundImage: nil)
-        $0.stateful = [(.normal, normalState), (.disabled, disabledState)]
+    public init(type: UIButton.ButtonType,
+                contentEdgeInsets: UIEdgeInsets,
+                backgroundColor: UIColor,
+                labelConfiguration: LabelConfiguration?,
+                layerConfiguration: LayerConfiguration?,
+                stateConfigurations: [(state: UIControl.State, configuration: StateConfiguration)]){
+        self.type = type
+        self.contentEdgeInsets = contentEdgeInsets
+        self.backgroundColor = backgroundColor
+        self.labelConfiguration = labelConfiguration
+        self.layerConfiguration = layerConfiguration
+        self.stateConfigurations = stateConfigurations
     }
 }
 
-extension UIButton {
+public extension UIButton {
     
-    convenience init(configuration: ButtonConfiguration) {
+    public convenience init(configuration: ButtonConfiguration) {
         self.init(type: configuration.type)
         apply(configuration: configuration)
     }
     
-    func apply(configuration: ButtonConfiguration) {
+    public func apply(configuration: ButtonConfiguration) {
         
         backgroundColor = configuration.backgroundColor
         contentEdgeInsets = configuration.contentEdgeInsets
         
-        if let labelConfiguration = configuration.label {
+        if let labelConfiguration = configuration.labelConfiguration {
             titleLabel?.apply(configuration: labelConfiguration)
         }
         
-        if let layerConfiguration = configuration.layer {
+        if let layerConfiguration = configuration.layerConfiguration {
             layer.apply(configuration: layerConfiguration)
         }
         
-        for (state, config) in configuration.stateful {
-            setTitleColor(config.titleColor, for: state)
-            setImage(config.image, for: state)
-            setBackgroundImage(config.backgroundImage, for: state)
+        for (state, configuration) in configuration.stateConfigurations {
+            setTitleColor(configuration.titleColor, for: state)
+            setImage(configuration.image, for: state)
+            setBackgroundImage(configuration.backgroundImage, for: state)
         }
     }
 }

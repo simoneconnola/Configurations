@@ -8,12 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1D34A1D8219EF8B600F480B5 /* Configurations.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D34A1D6219EF8B600F480B5 /* Configurations.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D34A1E3219EF8E700F480B5 /* LayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34A1DE219EF8E700F480B5 /* LayerConfiguration.swift */; };
+		1D34A1E4219EF8E700F480B5 /* ImageViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34A1DF219EF8E700F480B5 /* ImageViewConfiguration.swift */; };
+		1D34A1E5219EF8E700F480B5 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34A1E0219EF8E700F480B5 /* AlertConfiguration.swift */; };
+		1D34A1E6219EF8E700F480B5 /* ButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34A1E1219EF8E700F480B5 /* ButtonConfiguration.swift */; };
+		1D34A1E7219EF8E700F480B5 /* LabelConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34A1E2219EF8E700F480B5 /* LabelConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D34A1D3219EF8B600F480B5 /* Configurations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Configurations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D34A1D6219EF8B600F480B5 /* Configurations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configurations.h; sourceTree = "<group>"; };
 		1D34A1D7219EF8B600F480B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D34A1DE219EF8E700F480B5 /* LayerConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerConfiguration.swift; sourceTree = "<group>"; };
+		1D34A1DF219EF8E700F480B5 /* ImageViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewConfiguration.swift; sourceTree = "<group>"; };
+		1D34A1E0219EF8E700F480B5 /* AlertConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
+		1D34A1E1219EF8E700F480B5 /* ButtonConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonConfiguration.swift; sourceTree = "<group>"; };
+		1D34A1E2219EF8E700F480B5 /* LabelConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,11 @@
 			children = (
 				1D34A1D6219EF8B600F480B5 /* Configurations.h */,
 				1D34A1D7219EF8B600F480B5 /* Info.plist */,
+				1D34A1E0219EF8E700F480B5 /* AlertConfiguration.swift */,
+				1D34A1E1219EF8E700F480B5 /* ButtonConfiguration.swift */,
+				1D34A1DF219EF8E700F480B5 /* ImageViewConfiguration.swift */,
+				1D34A1E2219EF8E700F480B5 /* LabelConfiguration.swift */,
+				1D34A1DE219EF8E700F480B5 /* LayerConfiguration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -95,6 +110,7 @@
 				TargetAttributes = {
 					1D34A1D2219EF8B600F480B5 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -130,6 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D34A1E6219EF8E700F480B5 /* ButtonConfiguration.swift in Sources */,
+				1D34A1E5219EF8E700F480B5 /* AlertConfiguration.swift in Sources */,
+				1D34A1E3219EF8E700F480B5 /* LayerConfiguration.swift in Sources */,
+				1D34A1E4219EF8E700F480B5 /* ImageViewConfiguration.swift in Sources */,
+				1D34A1E7219EF8E700F480B5 /* LabelConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +209,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -246,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -261,6 +282,7 @@
 		1D34A1DC219EF8B600F480B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -278,6 +300,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.simoneconnola.Configurations;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -286,6 +309,7 @@
 		1D34A1DD219EF8B600F480B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

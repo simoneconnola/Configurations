@@ -1,37 +1,32 @@
 
 import UIKit
 
-struct LayerConfiguration: Then {
+public struct LayerConfiguration {
     
-    struct Shadow {
+    public struct Shadow {
         var color: UIColor
         var opacity: Float
         var offset: UIOffset
         var radius: CGFloat
     }
     
-    var cornerRadius: CGFloat
-    var shadow: Shadow?
-}
-
-extension LayerConfiguration {
+    public var cornerRadius: CGFloat
+    public var shadow: Shadow?
     
-    static let base = LayerConfiguration(cornerRadius: 0, shadow: nil)
-    
-    static let button = base.with {
-        $0.cornerRadius = 3
-        $0.shadow = Shadow(color: .black, opacity: 0.22, offset: UIOffset(horizontal: 0, vertical: 2), radius: 2)
+    public init(cornerRadius: CGFloat, shadow: Shadow) {
+        self.cornerRadius = cornerRadius
+        self.shadow = shadow
     }
 }
 
-extension CALayer {
+public extension CALayer {
     
-    convenience init(configuration: LayerConfiguration) {
+    public convenience init(configuration: LayerConfiguration) {
         self.init()
         apply(configuration: configuration)
     }
     
-    func apply(configuration: LayerConfiguration) {
+    public func apply(configuration: LayerConfiguration) {
         cornerRadius = configuration.cornerRadius
         if let shadow = configuration.shadow {
             shadowColor = shadow.color.cgColor
